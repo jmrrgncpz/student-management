@@ -1,3 +1,4 @@
+const { server } = require('../config');
 const _ = require("lodash");
 const axios = require("axios");
 
@@ -23,7 +24,7 @@ function getStudents(tutors) {
     });
   }
 
-  return axios.get("http://localhost:4000/api/getcommonsstudents", {
+  return axios.get(server + "/api/getcommonsstudents", {
     params: { tutor: tutors },
   });
 }

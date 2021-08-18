@@ -70,7 +70,7 @@ export default function Home() {
       <main className="w-full flex flex-col p-8">
         <ToastContainer />
         <container className="w-full lg:w-1/2 flex flex-col justify-between m-auto bg-blue">
-          <h1 class="text-gray-600 text-5xl mb-12 font-bold">Student Management</h1>
+          <h1 className="text-gray-600 text-5xl mb-12 font-bold">Student Management</h1>
           <header className="w-full flex  flex-col">
             <div className="flex flex-col lg:flex-row justify-between items-stretch mb-4">
               <div className="flex flex-col lg:flex-row mb-4 lg:mb-0">
@@ -94,7 +94,7 @@ export default function Home() {
               </div>
               <div>
                 {isLoadingStudents ? (
-                  <p class="text-xl text-blue-400 font-bold tracking-wider">Loading...</p>
+                  <p className="text-xl text-blue-400 font-bold tracking-wider">Loading...</p>
                 ) : (
                   <button
                     className="bg-blue-200 text-xl px-8 py-2 font-bold rounded w-full lg:w-auto"
@@ -107,7 +107,7 @@ export default function Home() {
             </div>
             <div className="flex flex-row flex-wrap">
               {tutors.map((t) => (
-                <p
+                <p key={`tutor-${t}`}
                   className="rounded-full shadow bg-gray-100 mr-6 py-2 px-8 cursor-pointer mb-4"
                   onClick={() => onTutorClcked(t)}
                 >
@@ -118,12 +118,12 @@ export default function Home() {
           </header>
           {students.length ? (
             <content className="w-full py-12">
-              <table class="w-full lg:w-auto">
+              <table className="w-full lg:w-auto">
                 <tr>
                   <th className="text-3xl text-left text-gray-600 ">Students</th>
                 </tr>
                 {students.map((s) => (
-                  <tr className="border-b border-gray-300">
+                  <tr key={`student-${s}`} className="border-b border-gray-300">
                     <td className="py-4 text-xl text-gray-600">{s}</td>
                   </tr>
                 ))}
